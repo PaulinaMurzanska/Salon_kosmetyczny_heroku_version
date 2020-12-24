@@ -1,0 +1,62 @@
+.confirmation {
+    position: relative;
+
+
+
+    .background {
+        background-image: url(../img/background-0.jpg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 100vh;
+        padding: 100px;
+
+
+
+    }
+
+    .confirm-box {
+
+        z-index: 7;
+        position: absolute;
+        top: 80px;
+        left: 80px;
+        margin: 0 auto;
+        text-align: left;
+        padding: 20px 40px;
+        background: $calendarGradientColor2;
+
+
+
+        .box {
+            text-transform: uppercase;
+            color: $calendarTextThirdColor;
+            margin-bottom: 30px;
+            font-size: 14px;
+            color: $mainSiteTextColor;
+            font-weight: 400;
+
+            &.head {
+                font-weight: 600;
+            }
+
+        }
+
+        code {
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+
+
+
+    }
+
+
+
+
+
+
+
+}

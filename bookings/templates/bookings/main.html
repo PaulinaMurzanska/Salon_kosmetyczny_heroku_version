@@ -1,0 +1,80 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+        integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+        crossorigin="anonymous" />
+    <link rel="stylesheet" href="{% static 'bookings/sass/main.css'%}">
+
+
+    <title>SALON</title>
+</head>
+
+<body>
+    <section class="menu-top">
+        <div class="logo">
+            <img src="{% static 'bookings/img/logo-1.png'%}" alt="">
+        </div>
+        <div class="offer">
+            <ul>
+                <!-- <li>
+                    <a href="{% url 'bookings:calendar'%}">Kalendarz</a>
+                </li> -->
+
+                <li>
+                    <a href="{% url 'bookings:index'%}">Rezerwacja online</a>
+                </li>
+                <li>
+                    <a href="#">
+                        O nas
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        Oferta
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        Galeria
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'login'%}">
+                        Dla pracownika
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+
+
+
+
+    </section>
+
+
+
+
+    <section class="intro">
+    </section>
+    <div class="intro-nice">
+        <h1>Nasz Dom Waszym Domem</h1>
+        <p><i>Cały Dom na wyłączność dla Ciebie i Twoich bliskich</i>.</p>
+        <p><i> Bez innych klientów.</i></p>
+        <p><i>Bez dodatkowych kosztów.</i></p>
+    </div>
+
+
+    <script src="assets/js/jquery.js"></script>
+
+    <script src="assets/js/app.js"></script>
+</body>
+
+</html>

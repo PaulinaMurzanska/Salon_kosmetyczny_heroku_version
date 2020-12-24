@@ -1,0 +1,48 @@
+Projekt polega na utworzeniu systemu rezerwacji wizyt w salonie kosmetycznym na różne
+rodzaje usług. Usługi mogą mieć różny czas trwania, a rezerwacje nie powinny się
+pokrywać.
+Usługi można będzie rezerwować na danego pracownika (lub dowolnego pracownika).
+Usługi wymagają potwierdzenia przez salon. (-> statusy rezerwacji)
+Pracownicy salonu mają możliwość podglądu kalendarza.
+Rezerwacja wymaga podania danych (imie, nazwisko, telefon, email)
+i potwierdzenia regulaminu oraz polityki prywatności, generowany jest kod
+rezerwacji.
+Widok rezerwacji pokazuje uproszczony kalendarz dla danego pracownika
+(widać, które terminy są wolne).
+MODELE
+======
+1. Pracownik (korzystamy z modelu django.auth.models.User)
+2. Usługa
+ - nazwa
+ - opis
+ - czas trwania
+ - koszt
+ - przypisanie pracowników (którzy mogą wykonywać usługę) M2M
+3. Rezerwacja (na usługę, do pracownika, termin)
+ - imię
+ - nazwisko
+ - telefon
+ - email
+ - usługa
+ - pracownik
+ - termin (timestamp / datetime)
+ - czas trwania
+ - koszt
+ - status rezerwacji
+ - potwiedzenia regulaminu, polityki prywatności
+ - kod rezerwacji
+WIDOKI
+======
+1. Wprowadzanie danych rezerwacji
+  - wybór usługi
+  - wybór pracownika
+  - wybór terminu
+  - widoczne wolne terminy
+2. Drugi ekran rezerwacji
+  - dane rezerwacji (imię, nazwisko, email, telefon)
+  - potwierdzenie regulaminu, polityki prywatności
+3. Potwierdzenie rezerwacji
+  - informacje o rezerwacji (data, czas, koszt, pracownik, usługa)
+  - kod rezerwacji
+4. Logowanie pracowników
+5. Widok kalendarza pracowniczego (warunkowo: jeżeli superuser to może przeglądać czyjeś kalendarze)

@@ -1,0 +1,63 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'bookings/sass/main.css'%}">
+
+</head>
+
+<body>
+    <section class="menu-top">
+        <div class="logo">
+            <a href="{% url 'bookings:main_page'%}">
+                <img src="{% static 'bookings/img/logo-1.png'%}" alt="">
+            </a>
+
+        </div>
+        <div class="offer">
+            <ul>
+                <!-- <li>
+                    <a href="{% url 'bookings:calendar'%}">Kalendarz</a>
+                </li> -->
+
+                <li>
+                    <a href="{% url 'bookings:index'%}">Rezerwacja online</a>
+                </li>
+                <li>
+                    <a href="#">
+                        O nas
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        Oferta
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        Galeria
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'login'%}">
+                        Dla pracownika 
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+
+    </section>
+    <section class="base">
+        {%block main%}{%endblock%}
+
+    </section>
+</body>
+
+</html>

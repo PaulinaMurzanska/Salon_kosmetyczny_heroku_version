@@ -1,0 +1,132 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'bookings/sass/main.css'%}">
+</head>
+
+<body>
+    <section class="menu-top">
+        <div class="logo">
+            <a href="{% url 'bookings:main_page'%}">
+                <img src="{% static 'bookings/img/logo-1.png'%}" alt="">
+            </a>
+
+        </div>
+        <div class="offer">
+            <ul>
+                <li>
+                    <a href="{% url 'bookings:calendar'%}">Twoje umówione wizyty</a>
+                </li>
+
+                <li>
+                    <a href="{% url 'bookings:index'%}">Rezerwacja online</a>
+                </li>
+
+
+                <li>
+                    <a href="{% url 'admin:index' %}">
+                        Admin
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+
+    </section>
+    <section class="calendar">
+
+        <p class="hello">Witaj {{ user}}</p>
+        <p class="info">Jesteś na profilu pracownika. Oto Twoje najbliższe rezerwacje</p>
+        <!-- <ul class="services-list">
+            {% for reservation in object_list %}
+            <li>{{ reservation.timestamp }}</li>
+            {% endfor %}
+        </ul>
+        <ul class="services-list">
+            {% for reservation in object_list %}
+            <li>{{ reservation.service }}</li>
+            {% endfor %}
+        </ul>
+        <ul class="services-list">
+            {% for reservation in object_list %}
+            <li>{{ reservation.duration }}</li>
+            {% endfor %}
+        </ul>
+        <ul class="services-list">
+            {% for reservation in object_list %}
+            <li>{{ reservation.first_name }}</li>
+            {% endfor %}
+        </ul>
+        <ul class="services-list">
+            {% for reservation in object_list %}
+            <li>{{ reservation.last_name }}</li>
+            {% endfor %}
+        </ul> -->
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Lp</th>
+                    <th>Data rozpoczęcia usługi</th>
+                    <th>Nazwa usługi</th>
+                    <th>Czas trwania usługi</th>
+                    <th>Imię i nazwisko klienta</th>
+                    <th>Adres email</th>
+                    <th>Telefon</th>
+                    <th>Status rezerwacji</th>
+                    <th>Kod rezerwacji</th>
+                </tr>
+            </thead>
+
+            {% for reservation in object_list %}
+
+            <tr>
+
+                <td>{{ forloop.counter}}</td>
+                <td>{{ reservation.timestamp }}</td>
+                <td> {{ reservation.service }}</td>
+                <td>{{ reservation.duration}}</td>
+                <td>{{ reservation.first_name }} {{ reservation.last_name }}</td>
+                <td>
+                    <a href="mailto:{{ reservation.email }}">
+                        {{ reservation.email }}
+                    </a>
+                </td>
+                <td>
+                    <a href="tel:{{reservation.phone}}">{{reservation.phone}}</a>
+                </td>
+                <td>{{ reservation.get_status_display}}</td>
+                <td><code>{{reservation.code }}</code></td>
+
+
+
+            </tr>
+            {% endfor %}
+        </table>
+
+
+
+
+
+        <button class="logout-btn">
+            {% if user.is_authenticated %}
+            <a href="{% url 'logout'%}">wyloguj
+            </a>
+            {% endif %}
+        </button>
+
+
+    </section>
+
+
+
+
+</body>
+
+</html>

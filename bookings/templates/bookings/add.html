@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block main %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalendarz</title>
+    <link rel="stylesheet" href="{% static 'bookings/sass/main.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+        integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+        crossorigin="anonymous" />
+</head>
+
+<body>
+    <section class="summary">
+    {% comment %} <div class="logo">
+            <a href="{% url 'bookings:main_page'%}">
+                <img src="{% static 'bookings/img/logo-1.png'%}" alt="">
+            </a>
+        </div> {% endcomment %}
+        
+        <h1>Szczegóły Twojej Rezerwacji</h1>
+
+     
+        <div class="res-summary">
+            <p>Wybrana usługa</p>
+            <div class="box service">
+                {{service}}
+                <span> cena usługi</span> {{ service.price}} pln
+            </div>
+            <p> Zarezerwowany termin</p>
+            <div class="box date">
+                {{ timestamp }}
+            </div>
+            <p>Wybrany pracownik</p>
+            <div class="box employee">
+                {{employee}}
+            </div>
+
+        </div>
+        
+     
+        <div class="conf-info">
+            <p>Aby zarezerwować wybrany termin i usługę , proszę wprowadź i potwierdź swoje dane</p>
+        </div>
+
+    </section>
+
+
+    <div class="errors">
+        {{ form2.errors}}
+    </div>
+
+    <div class="errors">
+        {{ form.errors}}
+    </div>
+    <div class="return">
+        <a href="{%  url 'bookings:index' %} ">
+            <i class="fas fa-chevron-left"></i>
+            <span>powrót do kalendarza</span>
+        </a>
+    </div>
+
+
+
+    <form method="POST">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+        <input type="submit" value="zapisz">
+    </form>
+
+</body>
+
+</html>
+{% endblock %}

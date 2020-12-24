@@ -1,0 +1,79 @@
+.calendar {
+    width: 100%;
+    padding: 0 80px;
+
+    .hello {
+
+        text-transform: uppercase;
+        font-size: 16px;
+        color: $mainSiteTextColor;
+        font-family: $mainSiteFont;
+
+        margin: 30px auto;
+
+    }
+
+    .info {
+
+        font-size: 14px;
+        color: $mainSiteTextColor;
+        font-family: $mainSiteFont;
+
+        margin: 30px auto;
+
+    }
+
+    table {
+
+        border: 2px solid $mainSiteTextColor;
+        padding: 10px;
+        border-spacing: 0.3em;
+        text-align: center;
+
+        th,
+        td {
+
+            padding: 10px;
+            border-right: none;
+            border-left: none;
+            background-color: $formBackgroundColor;
+
+        }
+
+        td {
+            text-transform: uppercase;
+            color: $mainSiteTextColor;
+            font-size: 10px;
+        }
+
+        th {
+            text-transform: uppercase;
+            color: $mainSiteTextColor;
+            font-size: 10px;
+            font-weight: 700;
+        }
+
+    }
+
+    .logout-btn {
+        width: 100%;
+        margin-top: 40px;
+        padding: 10px;
+        border: 1px solid $mainSiteTextColor;
+        background-color: $mainSiteTextColor;
+
+        &:hover {
+            background-color: $formBackgroundColor;
+        }
+
+        a {
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 16px;
+            color: $calendarTextThirdColor;
+
+        }
+
+
+    }
+}
