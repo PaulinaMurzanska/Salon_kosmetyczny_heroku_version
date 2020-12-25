@@ -1,7 +1,11 @@
-// $('.hamburger-btn').on('click', (event) => {
-//     $('.menu-hidden').addClass('visible');
+$('.hamburger-btn').on('click', (event) => {
+    $('.menu-hidden').addClass('visible');
 
-// })
+})
+$(".fa-times").on('click', (event) => {
+    $('.menu-hidden').removeClass('visible');
+
+})
 
 $('.chevron-right-first').on('click', (event) => {
     $('.first-slide').removeClass('open');

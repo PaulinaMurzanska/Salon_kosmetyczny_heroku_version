@@ -53,6 +53,50 @@
 
             </ul>
         </div>
+        <div class="hamburger-btn">
+            <i class="fas fa-bars"></i>
+        </div>
+        <div class="menu-hidden">
+            <div class="offer vertical">
+                <ul>
+                    <!-- <li>
+                        <a href="{% url 'bookings:calendar'%}">Kalendarz</a>
+                    </li> -->
+
+                    <li>
+                        <a href="{% url 'bookings:index'%}">Rezerwacja online</a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            O nas
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            Oferta
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            Galeria
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'login'%}">
+                            Dla pracownika
+                        </a>
+                    </li>
+
+                </ul>
+                <div class="close-bar-menu">
+                    <i class="fas fa-times"></i>
+                </div>
+            </div>
+
+
+
+        </div>
+
 
 
 
@@ -72,9 +116,11 @@
     </div>
 
 
-    <script src="assets/js/jquery.js"></script>
+    <script src="{% static 'bookings/js/jquery.js' %}"></script>
+    <script src="{% static 'bookings/js/owl.carousel.js' %}"></script>
 
-    <script src="assets/js/app.js"></script>
+    <script src="{% static 'bookings/js/app.js' %}"></script>
+
 </body>
 
 </html>
