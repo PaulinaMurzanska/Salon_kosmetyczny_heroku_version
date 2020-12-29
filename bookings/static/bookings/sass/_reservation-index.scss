@@ -3,12 +3,20 @@
     background-color: #fff;
     position: relative;
 
+    @media(max-width:800px) {
+        padding: 50px 30px;
+    }
+
 
 
     .calendar-wrap {
 
         width: 90%;
         margin: 0 auto;
+
+        @media(max-width:800px) {
+            width: 100%;
+        }
 
         .choose-date {
             margin: 0 auto;
@@ -132,6 +140,10 @@
                 padding: 0 80px;
                 margin: 0;
 
+                @media(max-width:800px) {
+                    padding: 0 10px;
+                }
+
 
                 ul {
                     list-style-type: none;
@@ -190,6 +202,10 @@
                             color: $calendarTextThirdColor;
                             font-size: 16px;
                             text-decoration: none;
+
+                            @media(max-width:800px) {
+                                font-size: 10px;
+                            }
                         }
 
 
@@ -203,6 +219,10 @@
         .part-of-day {
             height: 50px;
             padding: 0 80px;
+
+            @media(max-width:800px) {
+                padding: 0 10px;
+            }
 
 
             .items {
@@ -238,11 +258,23 @@
         form {
             width: 100%;
 
+            @media(max-width:800px) {
+                padding: 0 10px 20px;
+            }
+
 
             .container {
                 padding: 0 80px 20px;
                 border-bottom: 1px solid $calendarBorderColor;
                 margin-bottom: 5px;
+
+                @media(max-width:800px) {
+                    padding: 0 10px 20px;
+                }
+
+
+
+
 
 
                 .box {

@@ -276,9 +276,21 @@ summary {
   position: relative;
 }
 
+@media (max-width: 800px) {
+  .reservation {
+    padding: 50px 30px;
+  }
+}
+
 .reservation .calendar-wrap {
   width: 90%;
   margin: 0 auto;
+}
+
+@media (max-width: 800px) {
+  .reservation .calendar-wrap {
+    width: 100%;
+  }
 }
 
 .reservation .calendar-wrap .choose-date {
@@ -401,6 +413,12 @@ summary {
   margin: 0;
 }
 
+@media (max-width: 800px) {
+  .reservation .calendar-wrap .weekdays-wrapper .weekdays {
+    padding: 0 10px;
+  }
+}
+
 .reservation .calendar-wrap .weekdays-wrapper .weekdays ul {
   list-style-type: none;
   display: -webkit-box;
@@ -455,9 +473,21 @@ summary {
   text-decoration: none;
 }
 
+@media (max-width: 800px) {
+  .reservation .calendar-wrap .weekdays-wrapper .weekdays.date li a {
+    font-size: 10px;
+  }
+}
+
 .reservation .calendar-wrap .part-of-day {
   height: 50px;
   padding: 0 80px;
+}
+
+@media (max-width: 800px) {
+  .reservation .calendar-wrap .part-of-day {
+    padding: 0 10px;
+  }
 }
 
 .reservation .calendar-wrap .part-of-day .items {
@@ -491,10 +521,22 @@ summary {
   width: 100%;
 }
 
+@media (max-width: 800px) {
+  .reservation .calendar-wrap form {
+    padding: 0 10px 20px;
+  }
+}
+
 .reservation .calendar-wrap form .container {
   padding: 0 80px 20px;
   border-bottom: 1px solid #ebebeb;
   margin-bottom: 5px;
+}
+
+@media (max-width: 800px) {
+  .reservation .calendar-wrap form .container {
+    padding: 0 10px 20px;
+  }
 }
 
 .reservation .calendar-wrap form .container .box {

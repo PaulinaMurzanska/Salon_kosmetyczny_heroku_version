@@ -53,7 +53,7 @@
                         {% for day in week %}
                         <li class="{% if selected_date == day %} selectedDate {%endif%}">
                             <a href="{%  url 'bookings:index' day.year day.month day.day %} ">
-                                {{ day.day }}{% if day == today%}(dzisiaj) {% endif%}
+                                {{ day.day }}{% if day == today%}(teraz){% endif%}
                             </a>
                         </li>
                         {% endfor %}
@@ -93,7 +93,7 @@
                         {% for day in week_next1 %}
                         <li class="{% if selected_date == day %} selectedDate {%endif%}">
                             <a href="{%  url 'bookings:index' day.year day.month day.day %} ">
-                                {{ day.day }}{% if day == today%}(dzisiaj) {% endif%}
+                                {{ day.day }}{% if day == today%}(teraz){% endif%}
                             </a>
                         </li>
                         {% endfor %}
@@ -132,7 +132,7 @@
                         {% for day in week_next2 %}
                         <li class="{% if selected_date == day %} selectedDate {%endif%}">
                             <a href="{%  url 'bookings:index' day.year day.month day.day %} ">
-                                {{ day.day }}{% if day == today%}(dzisiaj) {% endif%}
+                                {{ day.day }}{% if day == today%}(teraz){% endif%}
                             </a>
                         </li>
                         {% endfor %}
@@ -171,7 +171,7 @@
                         {% for day in week_next3 %}
                         <li class="{% if selected_date == day %} selectedDate {%endif%}">
                             <a href="{%  url 'bookings:index' day.year day.month day.day %} ">
-                                {{ day.day }}{% if day == today%}(dzisiaj) {% endif%}
+                                {{ day.day }}{% if day == today%}(teraz){% endif%}
                             </a>
                         </li>
                         {% endfor %}
