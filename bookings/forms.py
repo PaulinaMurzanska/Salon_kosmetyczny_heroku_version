@@ -29,7 +29,7 @@ class BaseReservationForm(forms.Form):
         errors = {}
 
         if service and employee and employee not in service.staff.all():
-            errors["employee error"] = ValidationError(
+            errors["employee"] = ValidationError(
                 f"Sorry, {employee} does not perform this service {service}, choose other employee. "
             )
 
@@ -41,7 +41,7 @@ class BaseReservationForm(forms.Form):
                 timestamp__lt=timestamp + service.duration
                 # employee=employee
             ):
-                errors["timestamp error"] = ValidationError(
+                errors["timestamp"] = ValidationError(
                     f"In this period other reservation already exist. Please, choose different date."
                 )
 
