@@ -30,7 +30,7 @@ class BaseReservationForm(forms.Form):
 
         if service and employee and employee not in service.staff.all():
             errors["employee"] = ValidationError(
-                f"Przepraszamy, {employee} nie wykonuje usługi  {service}, wybierz innego pracownika."
+                f"Sorry, {employee} does not perform this service {service}, choose other employee. "
             )
 
         # musimy spsrawdizć czy w czasie  [timestamp; timestamp +service.duration] nie występuje jakaś rezerwacja
@@ -42,7 +42,7 @@ class BaseReservationForm(forms.Form):
                 # employee=employee
             ):
                 errors["timestamp"] = ValidationError(
-                    f"W wybranym terminie istnieje inna rezerwacja, proszę wybierz inny termin"
+                    f"In this period other reservation already exist. Please, choose different date."
                 )
 
         if timestamp and service:
@@ -50,7 +50,7 @@ class BaseReservationForm(forms.Form):
             reservation_time_end = (timestamp + service.duration).time()
             if reservation_time < time(10, 00) or reservation_time_end > time(19, 0):
                 errors["timestamp"] = ValidationError(
-                    "Wybrany termin jest poza godzinami pracy salonu"
+                    "Chosen time exceed our working hours."
                 )
 
         if errors:
@@ -60,12 +60,12 @@ class BaseReservationForm(forms.Form):
 class ReservationForm(forms.ModelForm):
     privacy_policy = forms.BooleanField(
         required=True,
-        label="Akceptuję polityke prywatności",
+        label="I accept privacy policy",
         help_text="<a href= '/pages/privacy-policy'>link </a> ",
     )
     terms_of_services = forms.BooleanField(
         required=True,
-        label="Akceptuje warunki rezerwacji ",
+        label="I accept terms & conditions.",
         help_text="<a href= '/pages/terms_of_services'>link</a> ",
     )
 
@@ -79,4 +79,3 @@ class ReservationForm(forms.ModelForm):
             "privacy_policy",
             "terms_of_services",
         ]
-

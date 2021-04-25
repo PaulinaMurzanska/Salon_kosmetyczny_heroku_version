@@ -1,126 +1,106 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
-        integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
-        crossorigin="anonymous" />
-    <link rel="stylesheet" href="{% static 'bookings/sass/main.css'%}">
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+      integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="{% static 'bookings/sass/main.css'%}" />
 
     <title>SALON</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <section class="menu-top">
-        <div class="logo">
-            <img src="{% static 'bookings/img/logo-1.png'%}" alt="">
+      <div class="logo">
+        <img src="{% static 'bookings/img/beauty-line.svg'%}" alt="" />
+      </div>
+      <div class="offer">
+        <ul>
+          <li>
+            <a href="{% url 'bookings:index'%}">Reserve online</a>
+          </li>
+          <li>
+            <a href="#"> About us </a>
+          </li>
+          <li>
+            <a href="#"> Offer </a>
+          </li>
+          <li>
+            <a href="#"> Photos </a>
+          </li>
+          <li>
+            <a href="{% url 'login'%}"> Employee login </a>
+          </li>
+        </ul>
+      </div>
+      <div class="hamburger-btn">
+        <i class="fas fa-bars"></i>
+      </div>
+      <div class="menu-hidden">
+        <div class="offer vertical">
+          <ul>
+            <li>
+              <a href="{% url 'bookings:index'%}">Reserve online</a>
+            </li>
+            <li>
+              <a href="#"> About us </a>
+            </li>
+            <li>
+              <a href="#"> Offer</a>
+            </li>
+            <li>
+              <a href="#"> Photos </a>
+            </li>
+            <li>
+              <a href="{% url 'login'%}"> Employee login </a>
+            </li>
+          </ul>
+          <div class="close-bar-menu">
+            <i class="fas fa-times"></i>
+          </div>
         </div>
-        <div class="offer">
-            <ul>
-                <!-- <li>
-                    <a href="{% url 'bookings:calendar'%}">Kalendarz</a>
-                </li> -->
-
-                <li>
-                    <a href="{% url 'bookings:index'%}">Rezerwacja online</a>
-                </li>
-                <li>
-                    <a href="#">
-                        O nas
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        Oferta
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        Galeria
-                    </a>
-                </li>
-                <li>
-                    <a href="{% url 'login'%}">
-                        Dla pracownika
-                    </a>
-                </li>
-
-            </ul>
-        </div>
-        <div class="hamburger-btn">
-            <i class="fas fa-bars"></i>
-        </div>
-        <div class="menu-hidden">
-            <div class="offer vertical">
-                <ul>
-                    <!-- <li>
-                        <a href="{% url 'bookings:calendar'%}">Kalendarz</a>
-                    </li> -->
-
-                    <li>
-                        <a href="{% url 'bookings:index'%}">Rezerwacja online</a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            O nas
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            Oferta
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            Galeria
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{% url 'login'%}">
-                            Dla pracownika
-                        </a>
-                    </li>
-
-                </ul>
-                <div class="close-bar-menu">
-                    <i class="fas fa-times"></i>
-                </div>
-            </div>
-
-
-
-        </div>
-
-
-
-
-
+      </div>
     </section>
 
-
-
-
-    <section class="intro">
-    </section>
+    <section class="intro"></section>
     <div class="intro-nice">
-        <h1>Nasz Dom Waszym Domem</h1>
-        <p><i>Cały Dom na wyłączność dla Ciebie i Twoich bliskich</i>.</p>
-        <p><i> Bez innych klientów.</i></p>
-        <p><i>Bez dodatkowych kosztów.</i></p>
+      <h1>Welcome to reservation system demo, designed for beauty studio.</h1>
+      <p>
+        <i
+          >This site had been created to demonstrate how the online reservation
+          system written in Django framework will work.</i
+        >
+      </p>
+      <p>
+        <i>
+          User can make a reservation for one of available services, for the
+          chosen date and for specific employee. In return he gets a
+          confirmation of the reservation he made with unique reservation
+          number.
+        </i>
+      </p>
+      <p>
+        <i
+          >The reservation is passed to employee calendar where registered
+          employee can display his own calendar with upcomming appoinments. Only
+          admin can create new services and new employees.
+        </i>
+      </p>
     </div>
-
 
     <script src="{% static 'bookings/js/jquery.js' %}"></script>
     <script src="{% static 'bookings/js/owl.carousel.js' %}"></script>
-
     <script src="{% static 'bookings/js/app.js' %}"></script>
-
-</body>
-
+  </body>
 </html>

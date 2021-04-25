@@ -1,276 +1,259 @@
-{% extends "base.html" %}
-{% load static %}
-{% block main %}
+{% extends "base.html" %} {% load static %} {% block main %}
 <!DOCTYPE htl>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kalendarz</title>
-    <link rel="stylesheet" href="{% static 'bookings/sass/main.css'%}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
-        integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
-        crossorigin="anonymous" />
-</head>
+    <link rel="stylesheet" href="{% static 'bookings/sass/main.css'%}" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+      integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+      crossorigin="anonymous"
+    />
+  </head>
 
-<body>
-
-
+  <body>
     <section class="reservation" id="res">
-
-        <div class="calendar-wrap">
-
-            <div class="choose-date">
-                <p>wybierz datę i czas</p>
-            </div>
-
-            <div class="month-name">
-                {{ selected_date|date:"F" }} {{today.year}}
-            </div>
-            <div class="weekdays-wrapper first-slide  {% if selected_date in week %} display {% endif %}   ">
-                <div class="chevron-left">
-                    <div class="chevron-left-first">
-                        <i class="fas fa-chevron-left"></i>
-                    </div>
-                </div>
-
-                <div class="weekdays name">
-                    <ul>
-                        {% for day in week %}
-                        <li class="{% if selected_date == day %} selectedDate {%endif%}">
-                            <a href="{%  url 'bookings:index' day.year day.month day.day %} ">
-                                {{ day|date:"D" }}
-                            </a>
-                        </li>
-                        {% endfor %}
-
-                    </ul>
-                </div>
-
-                <div class="weekdays date">
-                    <ul class>
-                        {% for day in week %}
-                        <li class="{% if selected_date == day %} selectedDate {%endif%}">
-                            <a href="{%  url 'bookings:index' day.year day.month day.day %} ">
-                                {{ day.day }}{% if day == today%}(teraz){% endif%}
-                            </a>
-                        </li>
-                        {% endfor %}
-
-
-                    </ul>
-
-                </div>
-                <div class="chevron-right">
-                    <div class="chevron-right-first">
-                        <i class="fas fa-chevron-right"></i>
-                    </div>
-                </div>
-
-            </div>
-            <div class="weekdays-wrapper second-slide {% if selected_date in week_next1 %} display {% endif %}">
-                <div class="chevron-left">
-                    <div class="chevron-left-second">
-                        <i class="fas fa-chevron-left"></i>
-                    </div>
-                </div>
-                <div class="weekdays name">
-                    <ul>
-                        {% for day in week_next1 %}
-                        <li class="{% if selected_date == day %} selectedDate {%endif%}">
-                            <a href="{%  url 'bookings:index' day.year day.month day.day %} ">
-                                {{ day|date:"D" }}
-                            </a>
-                        </li>
-                        {% endfor %}
-
-                    </ul>
-                </div>
-
-                <div class="weekdays date">
-                    <ul class>
-                        {% for day in week_next1 %}
-                        <li class="{% if selected_date == day %} selectedDate {%endif%}">
-                            <a href="{%  url 'bookings:index' day.year day.month day.day %} ">
-                                {{ day.day }}{% if day == today%}(teraz){% endif%}
-                            </a>
-                        </li>
-                        {% endfor %}
-
-
-                    </ul>
-
-                </div>
-                <div class="chevron-right">
-                    <div class="chevron-right-second">
-                        <i class="fas fa-chevron-right"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="weekdays-wrapper third-slide {% if selected_date in week_next2 %} display {% endif %}">
-                <div class="chevron-left">
-                    <div class="chevron-left-third">
-                        <i class="fas fa-chevron-left"></i>
-                    </div>
-                </div>
-                <div class="weekdays name">
-                    <ul>
-                        {% for day in week_next2 %}
-                        <li class="{% if selected_date == day %} selectedDate {%endif%}">
-                            <a href="{%  url 'bookings:index' day.year day.month day.day %} ">
-                                {{ day|date:"D" }}
-                            </a>
-                        </li>
-                        {% endfor %}
-
-                    </ul>
-                </div>
-
-                <div class="weekdays date">
-                    <ul class>
-                        {% for day in week_next2 %}
-                        <li class="{% if selected_date == day %} selectedDate {%endif%}">
-                            <a href="{%  url 'bookings:index' day.year day.month day.day %} ">
-                                {{ day.day }}{% if day == today%}(teraz){% endif%}
-                            </a>
-                        </li>
-                        {% endfor %}
-
-
-                    </ul>
-
-                </div>
-                <div class="chevron-right">
-                    <div class="chevron-right-third">
-                        <i class="fas fa-chevron-right"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="weekdays-wrapper fourth-slide {% if selected_date in week_next3 %} display {% endif %}">
-                <div class="chevron-left">
-                    <div class="chevron-left-fourth">
-                        <i class="fas fa-chevron-left"></i>
-                    </div>
-                </div>
-                <div class="weekdays name">
-                    <ul>
-                        {% for day in week_next3 %}
-                        <li class="{% if selected_date == day %} selectedDate {%endif%}">
-                            <a href="{%  url 'bookings:index' day.year day.month day.day %} ">
-                                {{ day|date:"D" }}
-                            </a>
-                        </li>
-                        {% endfor %}
-
-                    </ul>
-                </div>
-
-                <div class="weekdays date">
-                    <ul class>
-                        {% for day in week_next3 %}
-                        <li class="{% if selected_date == day %} selectedDate {%endif%}">
-                            <a href="{%  url 'bookings:index' day.year day.month day.day %} ">
-                                {{ day.day }}{% if day == today%}(teraz){% endif%}
-                            </a>
-                        </li>
-                        {% endfor %}
-
-
-                    </ul>
-
-                </div>
-                <div class="chevron-right">
-                    <div class="chevron-right-fourth">
-                        <i class="fas fa-chevron-right"></i>
-                    </div>
-                </div>
-            </div>
-
-            <div class="part-of-day">
-                <div class="items">
-                    <div class="item">rano</div>
-                    <div class="item">popołudnie</div>
-                    <div class="item">wieczór</div>
-                </div>
-
-
-            </div>
-            <form method="GET" action="{% url 'bookings:add' %}">
-
-                <div class="container">
-                    <div class="box">
-                        {% for date, is_reserved in dates.items %}
-                        <div class="slot {% if is_reserved %} reserved {% else %}free{% endif %}">
-                            {% if not is_reserved %}
-                            <label>
-                                <input type="radio" name="timestamp" value="{{ date|date:'c'}}">
-                                <span>{{date.hour}} :{% if date.minute == 0 %} 0{{date.minute}}{% else%}
-                                    {{date.minute}}{% endif%}
-                                </span>
-                            </label>
-                            {% else %}
-                            {{ date}}
-                            {%endif %}
-
-                        </div>
-                        {% endfor %}
-                    </div>
-
-
-
-
-                </div>
-
-                <div class="choice">
-
-                    <div class="service">
-                        Wybierz usługę:
-                        <select name="service" id="service-id">
-                            {% for service in services%}
-                            <option value="{{ service.pk}}">{{ service }}</option>
-                            {% endfor %}
-                        </select>
-                    </div>
-
-                    <div class="employee">
-                        Wybierz pracownika:
-                        <select name="employee">
-                            {% for employee in employees%}
-
-                            <option value="{{ employee.pk}}">{{ employee }}</option>
-                            {% endfor %}
-                        </select>
-                    </div>
-
-
-
-                </div>
-
-
-                <div class="btn">
-                    <input type="submit" value="ZAREZERWUJ">
-                </div>
-
-            </form>
-
-
+      <div class="calendar-wrap">
+        <div class="choose-date">
+          <p>Pick date and time</p>
         </div>
 
+        <div class="month-name">
+          {{ selected_date|date:"F" }} {{today.year}}
+        </div>
+        <div
+          class="weekdays-wrapper first-slide {% if selected_date in week %} display {% endif %}"
+        >
+          <div class="chevron-left">
+            <div class="chevron-left-first">
+              <i class="fas fa-chevron-left"></i>
+            </div>
+          </div>
+
+          <div class="weekdays name">
+            <ul>
+              {% for day in week %}
+              <li class="{% if selected_date == day %} selectedDate {%endif%}">
+                <a
+                  href="{%  url 'bookings:index' day.year day.month day.day %} "
+                >
+                  {{ day|date:"D" }}
+                </a>
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+
+          <div class="weekdays date">
+            <ul class>
+              {% for day in week %}
+              <li class="{% if selected_date == day %} selectedDate {%endif%}">
+                <a
+                  href="{%  url 'bookings:index' day.year day.month day.day %} "
+                >
+                  {{ day.day }}{% if day == today%}(now){% endif%}
+                </a>
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+          <div class="chevron-right">
+            <div class="chevron-right-first">
+              <i class="fas fa-chevron-right"></i>
+            </div>
+          </div>
+        </div>
+        <div
+          class="weekdays-wrapper second-slide {% if selected_date in week_next1 %} display {% endif %}"
+        >
+          <div class="chevron-left">
+            <div class="chevron-left-second">
+              <i class="fas fa-chevron-left"></i>
+            </div>
+          </div>
+          <div class="weekdays name">
+            <ul>
+              {% for day in week_next1 %}
+              <li class="{% if selected_date == day %} selectedDate {%endif%}">
+                <a
+                  href="{%  url 'bookings:index' day.year day.month day.day %} "
+                >
+                  {{ day|date:"D" }}
+                </a>
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+
+          <div class="weekdays date">
+            <ul class>
+              {% for day in week_next1 %}
+              <li class="{% if selected_date == day %} selectedDate {%endif%}">
+                <a
+                  href="{%  url 'bookings:index' day.year day.month day.day %} "
+                >
+                  {{ day.day }}{% if day == today%}(now){% endif%}
+                </a>
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+          <div class="chevron-right">
+            <div class="chevron-right-second">
+              <i class="fas fa-chevron-right"></i>
+            </div>
+          </div>
+        </div>
+        <div
+          class="weekdays-wrapper third-slide {% if selected_date in week_next2 %} display {% endif %}"
+        >
+          <div class="chevron-left">
+            <div class="chevron-left-third">
+              <i class="fas fa-chevron-left"></i>
+            </div>
+          </div>
+          <div class="weekdays name">
+            <ul>
+              {% for day in week_next2 %}
+              <li class="{% if selected_date == day %} selectedDate {%endif%}">
+                <a
+                  href="{%  url 'bookings:index' day.year day.month day.day %} "
+                >
+                  {{ day|date:"D" }}
+                </a>
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+
+          <div class="weekdays date">
+            <ul class>
+              {% for day in week_next2 %}
+              <li class="{% if selected_date == day %} selectedDate {%endif%}">
+                <a
+                  href="{%  url 'bookings:index' day.year day.month day.day %} "
+                >
+                  {{ day.day }}{% if day == today%}(teraz){% endif%}
+                </a>
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+          <div class="chevron-right">
+            <div class="chevron-right-third">
+              <i class="fas fa-chevron-right"></i>
+            </div>
+          </div>
+        </div>
+        <div
+          class="weekdays-wrapper fourth-slide {% if selected_date in week_next3 %} display {% endif %}"
+        >
+          <div class="chevron-left">
+            <div class="chevron-left-fourth">
+              <i class="fas fa-chevron-left"></i>
+            </div>
+          </div>
+          <div class="weekdays name">
+            <ul>
+              {% for day in week_next3 %}
+              <li class="{% if selected_date == day %} selectedDate {%endif%}">
+                <a
+                  href="{%  url 'bookings:index' day.year day.month day.day %} "
+                >
+                  {{ day|date:"D" }}
+                </a>
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+
+          <div class="weekdays date">
+            <ul class>
+              {% for day in week_next3 %}
+              <li class="{% if selected_date == day %} selectedDate {%endif%}">
+                <a
+                  href="{%  url 'bookings:index' day.year day.month day.day %} "
+                >
+                  {{ day.day }}{% if day == today%}(now){% endif%}
+                </a>
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+          <div class="chevron-right">
+            <div class="chevron-right-fourth">
+              <i class="fas fa-chevron-right"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="part-of-day">
+          <div class="items">
+            <div class="item">morning</div>
+            <div class="item">midday</div>
+            <div class="item">evening</div>
+          </div>
+        </div>
+        <form method="GET" action="{% url 'bookings:add' %}">
+          <div class="container">
+            <div class="box">
+              {% for date, is_reserved in dates.items %}
+              <div
+                class="slot {% if is_reserved %} reserved {% else %}free{% endif %}"
+              >
+                {% if not is_reserved %}
+                <label>
+                  <input
+                    type="radio"
+                    name="timestamp"
+                    value="{{ date|date:'c'}}"
+                  />
+                  <span
+                    >{{date.hour}} : {% if date.minute == 0 %} 0{{date.minute}}
+                    {% else%} {{date.minute}} {% endif%}
+                  </span>
+                </label>
+                {% else %} {{ date}} {%endif %}
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+
+          <div class="choice">
+            <div class="service">
+              Choose service:
+              <select name="service" id="service-id">
+                {% for service in services%}
+                <option value="{{ service.pk}}">{{ service }}</option>
+                {% endfor %}
+              </select>
+            </div>
+
+            <div class="employee">
+              Choose employee:
+              <select name="employee">
+                {% for employee in employees%}
+
+                <option value="{{ employee.pk}}">{{ employee }}</option>
+                {% endfor %}
+              </select>
+            </div>
+          </div>
+
+          <div class="btn">
+            <input type="submit" value="Submit" />
+          </div>
+        </form>
+      </div>
     </section>
-
-
-
-
-
-
 
     <script src="{% static 'bookings/js/jquery.js' %}"></script>
     <script src="{% static 'bookings/js/owl.carousel.js' %}"></script>
 
     <script src="{% static 'bookings/js/app.js' %}"></script>
-
-</body>
-
+  </body>
 </html>
 {% endblock %}

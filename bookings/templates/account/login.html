@@ -2,82 +2,98 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="{% static 'bookings/sass/main.css'%}">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+      integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+      crossorigin="anonymous"
+    />
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'bookings/sass/main.css'%}" />
+  </head>
+  <body>
     <section class="menu-top">
-        <div class="logo">
-            <a href="{% url 'bookings:main_page'%}">
-                <img src="{% static 'bookings/img/logo-1.png'%}" alt="">
-            </a>
-    
+      <div class="logo">
+        <a href="{% url 'bookings:main_page'%}">
+          <img src="{% static 'bookings/img/beauty-line.svg'%}" alt="" />
+        </a>
+      </div>
+      <div class="offer">
+        <ul>
+          <li>
+            <a href="{% url 'bookings:calendar'%}">Your appointments</a>
+          </li>
+
+          <li>
+            <a href="{% url 'bookings:index'%}">Reserve online</a>
+          </li>
+
+          <li>
+            <a href="{% url 'admin:index' %}"> Admin </a>
+          </li>
+        </ul>
+      </div>
+      <div class="hamburger-btn">
+        <i class="fas fa-bars"></i>
+      </div>
+      <div class="menu-hidden">
+        <div class="offer vertical">
+          <ul>
+            <li>
+              <a href="{% url 'bookings:calendar'%}">Your appointments</a>
+            </li>
+
+            <li>
+              <a href="{% url 'bookings:index'%}">Reserve online</a>
+            </li>
+
+            <li>
+              <a href="{% url 'admin:index' %}"> Admin </a>
+            </li>
+          </ul>
+          <div class="close-bar-menu">
+            <i class="fas fa-times"></i>
+          </div>
         </div>
-        <div class="offer">
-            <ul>
-                <li>
-                    <a href="{% url 'bookings:calendar'%}">Twoje umówione wizyty</a>
-                </li>
-    
-                <li>
-                    <a href="{% url 'bookings:index'%}">Rezerwacja online</a>
-                </li>
-    
-    
-                <li>
-                    <a href="{% url 'admin:index' %}">
-                        Admin
-                    </a>
-                </li>
-    
-            </ul>
-        </div>
-    
+      </div>
     </section>
     {% if form.errors %}
     <p>Your username and password didn't match. Please try again.</p>
-    {% endif %}
-
-    {% if next %}
-    {% if user.is_authenticated %}
-    <p>Your account doesn't have access to this page. To proceed,
-        please login with an account that has access.</p>
+    {% endif %} {% if next %} {% if user.is_authenticated %}
+    <p>
+      Your account doesn't have access to this page. To proceed, please login
+      with an account that has access.
+    </p>
     {% else %}
     <p>Please login to see this page.</p>
-    {% endif %}
-    {% endif %}
+    {% endif %} {% endif %}
 
     <form method="post" action="{% url 'login' %}">
-        {% csrf_token %}
-        <table>
-            <tr>
-                <td>{{ form.username.label_tag }}</td>
-                <td>{{ form.username }}</td>
-            </tr>
-            <tr>
-                <td>{{ form.password.label_tag }}</td>
-                <td>{{ form.password }}</td>
-            </tr>
-        </table>
+      {% csrf_token %}
+      <table>
+        <tr>
+          <td>{{ form.username.label_tag }}</td>
+          <td>{{ form.username }}</td>
+        </tr>
+        <tr>
+          <td>{{ form.password.label_tag }}</td>
+          <td>{{ form.password }}</td>
+        </tr>
+      </table>
 
-        <input type="submit" value="login">
-        <input type="hidden" name="next" value="{{ next }}">
+      <input type="submit" value="login" />
+      <input type="hidden" name="next" value="{{ next }}" />
     </form>
-
-
-
-
-    
-</body>
+    <script src="{% static 'bookings/js/jquery.js' %}"></script>
+    <script src="{% static 'bookings/js/owl.carousel.js' %}"></script>
+    <script src="{% static 'bookings/js/app.js' %}"></script>
+  </body>
 </html>
-
-
-
-
-
-
-
-

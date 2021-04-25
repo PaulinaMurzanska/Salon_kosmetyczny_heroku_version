@@ -1,367 +1,305 @@
 .summary {
-    padding: 100px 80px 20px;
-    background-color: #fff;
-    text-align: center;
-    position: relative;
-    .logo {
+  width: 100%;
+  padding: 100px 80px 20px;
+  background-color: #fff;
+  text-align: center;
+  position: relative;
+  @media (max-width: 700px) {
+    padding: 50px 10px 10px;
+  }
 
-        width: 200px;
-        position: absolute;
-        top: 5px;
-        left: 5px;
+  h1 {
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 600;
+    color: $calendarTextColor;
+  }
 
-
-        img {
-            width: 100%;
-
-            &:hover {
-                border: 1px solid $formBackgroundColor;
-            }
-        }
-
+  .res-summary {
+    padding: 0 80px;
+    @media (max-width: 700px) {
+      padding: 10px;
     }
 
-    h1 {
-        text-transform: uppercase;
-        font-size: 16px;
-        font-weight: 600;
-        color: $calendarTextColor;
+    p {
+      border-top: 1px solid $calendarBorderColor;
+      border-bottom: 1px solid $calendarBorderColor;
+      padding: 10px;
+      width: 100%;
+      background: $calendarGradientColor;
+      text-transform: uppercase;
+      font-size: 14px;
     }
 
-    .res-summary {
-        padding: 0 80px;
+    .box {
+      margin-top: 0;
+      margin-bottom: 25px;
+      text-transform: uppercase;
+      color: $calendarHoverColor;
+      font-size: 14px;
 
-        p {
-            border-top: 1px solid $calendarBorderColor;
-            border-bottom: 1px solid $calendarBorderColor;
-            padding: 10px;
-            width: 100%;
-            background: $calendarGradientColor;
-            text-transform: uppercase;
-            font-size: 14px;
-
-        }
-
-        .box {
-            margin-top: 0;
-            margin-bottom: 25px;
-            text-transform: uppercase;
-            color: $calendarHoverColor;
-            font-size: 14px;
-
-            span {
-                display: block;
-                margin-top: 15px;
-                font-size: 10px;
-            }
-        }
+      span {
+        display: block;
+        margin-top: 15px;
+        font-size: 10px;
+      }
     }
+  }
 
-    .conf-info {
-        text-transform: uppercase;
-        font-weight: 600;
-        color: $calendarTextColor;
-        padding: 0 80px;
+  .conf-info {
+    font-weight: 600;
+    color: $calendarTextColor;
+    padding: 0 80px;
+    @media (max-width: 700px) {
+      padding: 10px;
     }
-
-
-
+  }
 }
 
 .errors {
+  width: 50%;
+  padding: 20px;
+  margin: 0 auto;
+  text-align: center;
+  color: red;
 
-    width: 50%;
-    padding: 20px;
-    margin: 0 auto;
-    text-align: center;
-    color: red;
+  ul {
+    list-style-type: none;
 
-    ul {
-        list-style-type: none;
-
-        li {
-            text-transform: capitalize;
-
-        }
-
+    li {
+      text-transform: capitalize;
     }
+  }
 }
 
 .return {
-    margin-left: 160px;
-    padding: 10px;
-    width: 190px;
+  padding: 10px;
+  width: 190px;
+  border: 1px solid $calendarHoverColor;
+  margin-left: 10px;
 
+  &:hover {
+    background-color: rgba($color: $calendarHoverColor, $alpha: 0.1);
 
-    border: 1px solid $calendarHoverColor;
-
-    &:hover {
-        background-color: rgba($color: $calendarHoverColor, $alpha:.1);
-
-        & a {
-            font-weight: 600;
-        }
+    & a {
+      font-weight: 600;
     }
+  }
 
+  a {
+    text-decoration: none;
+    color: $calendarHoverColor;
+    text-transform: uppercase;
+    font-size: 10px;
 
-    a {
-        text-decoration: none;
-        color: $calendarHoverColor;
-        text-transform: uppercase;
-        font-size: 10px;
-
-        i {
-            margin-right: 15px;
-        }
-
-
-
+    i {
+      margin-right: 15px;
     }
-
-
-
+  }
 }
 
-
 form {
-    padding: 20px 80px;
-    background-color: #fff;
-    text-align: center;
+  padding: 20px 80px;
+  background-color: #fff;
+  text-align: center;
+  @media (max-width: 700px) {
+    padding: 10px;
+  }
 
-    table {
-        margin: 0 auto;
-        width: 100%;
+  table {
+    margin: 0 auto;
+    width: 100%;
 
+    tr {
+      display: flex;
+      flex-direction: column;
 
-        tr {
-            display: flex;
-            flex-direction: column;
-            padding: 10px 80px;
-
-            &:nth-of-type(5) {
-
-                display: flex;
-                flex-direction: row;
-
-
-
-
-                th {
-                    color: $calendarTextThirdColor;
-                    width: 180px;
-                    margin-right: 20px;
-                    font-weight: 200;
-                    font-size: 14px;
-                    padding-top: 10px;
-                    margin-left: 0;
-                    background: $formBackgroundColor;
-
-                }
-
-                td {
-                    display: inline;
-
-                    input {
-                        position: relative;
-
-
-                        &:before {
-                            content: "";
-                            width: 25px;
-                            height: 25px;
-                            border-radius: 50%;
-                            border: 2px solid $calendarHoverColor;
-                            background-color: white;
-                            position: absolute;
-                            top: -3px;
-                            left: -6px;
-                        }
-
-
-
-                        &:after {
-                            content: "\f00c";
-                            font-family: 'Font Awesome 5 Free';
-                            font-weight: 900;
-                            color: $calendarTextThirdColor;
-                            z-index: 6;
-                            position: absolute;
-                            top: 0;
-                            left: -2px;
-                            opacity: 0;
-                        }
-
-                        &:checked:before {
-                            background-color: $calendarHoverColor;
-                        }
-
-                        &:checked:after {
-                            opacity: 1;
-                        }
-                    }
-
-                    span {
-                        display: block;
-
-                        a {
-                            color: $calendarTextThirdColor;
-                            font-size: 10px;
-                        }
-                    }
-
-
-                }
-
-
-
-            }
-
-            &:nth-of-type(6) {
-
-                display: flex;
-                flex-direction: row;
-
-
-                th {
-                    color: $calendarTextThirdColor;
-                    width: 180px;
-                    margin-right: 20px;
-                    font-weight: 200;
-                    font-size: 14px;
-                    padding-top: 10px;
-                    margin-left: 0;
-                    background: $formBackgroundColor;
-
-                }
-
-                td {
-                    display: inline;
-
-                    input {
-                        position: relative;
-
-
-                        &:before {
-                            content: "";
-                            width: 25px;
-                            height: 25px;
-                            border-radius: 50%;
-                            border: 2px solid $calendarHoverColor;
-                            background-color: white;
-                            position: absolute;
-                            top: -3px;
-                            left: -6px;
-                        }
-
-
-
-                        &:after {
-                            content: "\f00c";
-                            font-family: 'Font Awesome 5 Free';
-                            font-weight: 900;
-                            color: $calendarTextThirdColor;
-                            z-index: 6;
-                            position: absolute;
-                            top: 0;
-                            left: -2px;
-                            opacity: 0;
-                        }
-
-                        &:checked:before {
-                            background-color: $calendarHoverColor;
-                        }
-
-                        &:checked:after {
-                            opacity: 1;
-                        }
-                    }
-
-                    span {
-                        display: block;
-
-                        a {
-                            color: $calendarTextThirdColor;
-                            font-size: 10px;
-                        }
-                    }
-
-
-                }
-
-
-
-            }
-
-
-        }
-
-
+      &:nth-of-type(5) {
+        display: flex;
+        flex-direction: row;
+        margin-top: 20px;
+        margin-bottom: 20px;
 
         th {
-            // background: $formBackgroundColor;
-            color: $calendarTextThirdColor;
-            text-transform: uppercase;
-            font-weight: 400;
-            width: 70%;
-            margin: 0 auto;
-
-            &:nth-of-type(5) {
-                width: 150px;
-                display: inline;
-                text-align: left;
-            }
+          color: $calendarTextThirdColor;
+          width: 180px;
+          margin-right: 20px;
+          font-weight: 200;
+          font-size: 14px;
+          padding-top: 10px;
+          margin-left: 0;
+          background: $formBackgroundColor;
         }
 
         td {
+          display: inline;
 
+          input {
+            position: relative;
 
-            input {
-                width: 50%;
-                border: none;
-                border-bottom: 1px solid $calendarHoverColor;
-                padding: 5px;
-                text-align: center;
-                background-color: rgba($color:$calendarHoverColor, $alpha:.1);
-
-                &:hover {
-                    background-color: rgba($color:$calendarHoverColor, $alpha:.1);
-                    border-bottom: 2px solid $calendarHoverColor;
-                }
-
-                &:focus {
-                    outline: none;
-
-                }
-
-
-
+            &:before {
+              content: "";
+              width: 25px;
+              height: 25px;
+              border-radius: 50%;
+              border: 2px solid $calendarHoverColor;
+              background-color: white;
+              position: absolute;
+              top: -3px;
+              left: -6px;
             }
 
+            &:after {
+              content: "\f00c";
+              font-family: "Font Awesome 5 Free";
+              font-weight: 900;
+              color: $calendarTextThirdColor;
+              z-index: 6;
+              position: absolute;
+              top: 0;
+              left: -2px;
+              opacity: 0;
+            }
 
+            &:checked:before {
+              background-color: $calendarHoverColor;
+            }
+
+            &:checked:after {
+              opacity: 1;
+            }
+          }
+
+          span {
+            display: block;
+
+            a {
+              color: $calendarTextThirdColor;
+              font-size: 10px;
+            }
+          }
         }
+      }
+
+      &:nth-of-type(6) {
+        display: flex;
+        flex-direction: row;
+
+        th {
+          color: $calendarTextThirdColor;
+          width: 180px;
+          margin-right: 20px;
+          font-weight: 200;
+          font-size: 14px;
+          padding-top: 10px;
+          margin-left: 0;
+          background: $formBackgroundColor;
+        }
+
+        td {
+          display: inline;
+
+          input {
+            position: relative;
+
+            &:before {
+              content: "";
+              width: 25px;
+              height: 25px;
+              border-radius: 50%;
+              border: 2px solid $calendarHoverColor;
+              background-color: white;
+              position: absolute;
+              top: -3px;
+              left: -6px;
+            }
+
+            &:after {
+              content: "\f00c";
+              font-family: "Font Awesome 5 Free";
+              font-weight: 900;
+              color: $calendarTextThirdColor;
+              z-index: 6;
+              position: absolute;
+              top: 0;
+              left: -2px;
+              opacity: 0;
+            }
+
+            &:checked:before {
+              background-color: $calendarHoverColor;
+            }
+
+            &:checked:after {
+              opacity: 1;
+            }
+          }
+
+          span {
+            display: block;
+
+            a {
+              color: $calendarTextThirdColor;
+              font-size: 10px;
+            }
+          }
+        }
+      }
     }
 
-    input[type="submit"] {
-        width: 100%;
-        padding: 10px;
-        margin: 20px auto;
-        border: 1px solid $calendarHoverColor;
-        background-color: $calendarHoverColor;
-        color: $calendarTextThirdColor;
-        text-transform: uppercase;
+    th {
+      color: $calendarTextThirdColor;
+      font-weight: 400;
+      width: 70%;
+      margin: 0 auto;
+
+      &:nth-of-type(5) {
+        width: 150px;
+        display: inline;
+        text-align: left;
+      }
+    }
+
+    td {
+      input {
+        width: 50%;
+        border: none;
+        border-bottom: 1px solid $calendarHoverColor;
+        padding: 5px;
+        text-align: center;
+        background-color: rgba($color: $calendarHoverColor, $alpha: 0.1);
+        @media (max-width: 700px) {
+          width: 100%;
+        }
 
         &:hover {
-            color: $calendarHoverColor;
-            background-color: rgba($color: $calendarHoverColor, $alpha:.1);
-
-
+          background-color: rgba($color: $calendarHoverColor, $alpha: 0.1);
+          border-bottom: 2px solid $calendarHoverColor;
         }
 
         &:focus {
-            outline: none;
+          outline: none;
         }
+      }
+    }
+  }
 
+  input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin: 20px auto;
+    border: 1px solid $calendarHoverColor;
+    background-color: $calendarHoverColor;
+    color: $calendarTextThirdColor;
+    text-transform: uppercase;
+
+    &:hover {
+      color: $calendarHoverColor;
+      background-color: rgba($color: $calendarHoverColor, $alpha: 0.1);
     }
 
-
+    &:focus {
+      outline: none;
+    }
+  }
 }

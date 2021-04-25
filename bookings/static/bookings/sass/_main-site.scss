@@ -1,169 +1,144 @@
 .menu-top {
-    width: 100%;
-    height: 60px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
 
-    @media(max-width:700px) {
-        height: 30px;
+  @media (max-width: 700px) {
+    height: 30px;
+  }
+
+  .logo {
+    height: 100%;
+
+    img {
+      height: 100%;
+      transform: scale(2);
+      margin-left: 50px;
+      @media (max-width: 700px) {
+        margin-left: 30px;
+      }
     }
+  }
+  .offer {
+    ul {
+      list-style-type: none;
+      display: flex;
 
+      li {
+        padding: 10px;
+        padding-right: 25px;
 
-
-    .logo {
-
-        height: 100%;
-
-
-        img {
-            height: 100%;
+        &:last-child {
+          margin-right: 0;
         }
 
+        a {
+          text-decoration: none;
+          color: $mainSiteTextColor;
+          @include fluid-type(10px, 14px);
+          text-transform: uppercase;
+          font-weight: 600;
+          letter-spacing: 1px;
 
+          &:hover {
+            color: $calendarTextColor;
+          }
+        }
+      }
 
-
+      @media (max-width: 700px) {
+        display: none;
+      }
     }
+  }
+
+  .hamburger-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 25px;
+    font-size: 16px;
+    color: $calendarHoverColor;
+    display: none;
+
+    @media (max-width: 700px) {
+      display: block;
+    }
+  }
+
+  .menu-hidden {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 250px;
+    height: 50vh;
+    background-color: #ffffff;
+    padding: 20px;
+    text-align: left;
+    transform: translate3d(0, -52vh, 0);
+    transition: 0.8s;
+    z-index: 20;
+    box-shadow: 0px 0px 3px 1px #e4afbe;
 
     .offer {
-        // margin-right: 20px;
-
-
+      &.vertical {
         ul {
-            list-style-type: none;
-            display: flex;
-
-            li {
-                padding: 10px;
-                padding-right: 25px;
-
-                &:last-child {
-                    margin-right: 0;
-                }
-
-                a {
-                    text-decoration: none;
-                    color: $mainSiteTextColor;
-                    @include fluid-type (10px, 14px);
-                    text-transform: uppercase;
-                    font-weight: 600;
-                    letter-spacing: 1px;
-
-                    &:hover {
-                        color: $calendarTextColor;
-
-                    }
-                }
-            }
-
-            @media(max-width:700px) {
-                display: none;
-            }
+          display: flex;
+          flex-direction: column;
         }
+
+        .close-bar-menu {
+          position: absolute;
+          top: 15px;
+          right: 25px;
+          color: $calendarHoverColor;
+        }
+      }
     }
 
-    .hamburger-btn {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        right: 25px;
-        font-size: 16px;
-        color: $calendarHoverColor;
-        display: none;
-
-        @media(max-width:700px) {
-            display: block;
-        }
-
+    &.visible {
+      transform: translate3d(0, 0vh, 0);
+      transition: 0.8s;
+      z-index: 20;
     }
-
-    .menu-hidden {
-        position: fixed;
-        top: 0;
-        right: 0;
-        width: 250px;
-        height: 50vh;
-        background-color: #ffffff;
-        padding: 20px;
-        text-align: left;
-        transform: translate3d(0, -52vh, 0);
-        transition: .8s;
-        z-index: 20;
-        box-shadow: 0px 0px 3px 1px #E4AFBE;
-
-        .offer {
-
-            &.vertical {
-                ul {
-                    display: flex;
-                    flex-direction: column;
-                }
-
-                .close-bar-menu {
-                    position: absolute;
-                    top: 15px;
-                    right: 25px;
-                    color: $calendarHoverColor;
-
-                }
-
-            }
-
-        }
-
-        &.visible {
-            transform: translate3d(0, 0vh, 0);
-            transition: .8s;
-            z-index: 20;
-
-
-
-        }
-
-
-    }
-
-
-
-
-
+  }
 }
 
 .intro {
-    width: 100%;
-    min-width: 100%;
-    height: 100vh;
-    background-image: url("../img/background-0.jpg");
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-
-
+  width: 100%;
+  min-width: 100%;
+  height: 100vh;
+  background-image: url("../img/background-0.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
-
-
-
 .intro-nice {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-80%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-80%, -50%);
 
+  h1 {
+    font-family: $mainSiteNiceFont;
+    @include fluid-type(20px, 35px);
+    color: $mainSiteTextColor;
+  }
 
-
-    h1 {
-        font-family: $mainSiteNiceFont;
-        @include fluid-type(30px, 100px);
-        color: $mainSiteTextColor;
+  p {
+    @include fluid-type(10px, 16px);
+    color: $calendarTextColor;
+    font-weight: 600;
+    font-family: $mainSiteFont;
+    line-height: 20px;
+    letter-spacing: 1px;
+    @media (max-width: 700px) {
+      line-height: 12px;
     }
-
-    p {
-        @include fluid-type(10px, 18px);
-        color: $calendarTextColor;
-        font-weight: 600;
-        font-family: $mainSiteFont;
-    }
+  }
 }

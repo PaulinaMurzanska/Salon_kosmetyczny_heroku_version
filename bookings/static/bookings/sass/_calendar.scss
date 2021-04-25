@@ -1,79 +1,80 @@
 .calendar {
-    width: 100%;
-    padding: 0 80px;
+  width: 100%;
+  padding: 0 80px;
 
-    .hello {
+  @media (max-width: 700px) {
+    padding: 10px;
+  }
 
-        text-transform: uppercase;
-        font-size: 16px;
-        color: $mainSiteTextColor;
-        font-family: $mainSiteFont;
+  .hello {
+    text-transform: uppercase;
+    font-size: 16px;
+    color: $mainSiteTextColor;
+    font-family: $mainSiteFont;
+    margin: 30px auto;
+  }
 
-        margin: 30px auto;
-
-    }
-
-    .info {
-
-        font-size: 14px;
-        color: $mainSiteTextColor;
-        font-family: $mainSiteFont;
-
-        margin: 30px auto;
-
-    }
-
+  .info {
+    font-size: 14px;
+    color: $mainSiteTextColor;
+    font-family: $mainSiteFont;
+    margin: 30px auto;
+  }
+  .table-wrap {
+    overflow-x: auto;
     table {
+      border: 2px solid $mainSiteTextColor;
+      padding: 10px;
+      border-spacing: 0.3em;
+      text-align: center;
+      width: 100%;
+      @media (max-width: 700px) {
+        padding: 5px;
+        border-spacing: 0.1em;
+      }
 
-        border: 2px solid $mainSiteTextColor;
+      th,
+      td {
         padding: 10px;
-        border-spacing: 0.3em;
-        text-align: center;
-
-        th,
-        td {
-
-            padding: 10px;
-            border-right: none;
-            border-left: none;
-            background-color: $formBackgroundColor;
-
+        border-right: none;
+        border-left: none;
+        background-color: $formBackgroundColor;
+        @media (max-width: 700px) {
+          padding: 5px;
         }
+      }
 
-        td {
-            text-transform: uppercase;
-            color: $mainSiteTextColor;
-            font-size: 10px;
-        }
+      td {
+        text-transform: uppercase;
+        color: $mainSiteTextColor;
+        font-size: 10px;
+      }
 
-        th {
-            text-transform: uppercase;
-            color: $mainSiteTextColor;
-            font-size: 10px;
-            font-weight: 700;
-        }
+      th {
+        text-transform: uppercase;
+        color: $mainSiteTextColor;
+        font-size: 10px;
+        font-weight: 700;
+      }
+    }
+  }
 
+  .logout-btn {
+    width: 100%;
+    margin-top: 40px;
+    padding: 10px;
+    border: 1px solid $mainSiteTextColor;
+    background-color: $mainSiteTextColor;
+
+    &:hover {
+      background-color: $formBackgroundColor;
     }
 
-    .logout-btn {
-        width: 100%;
-        margin-top: 40px;
-        padding: 10px;
-        border: 1px solid $mainSiteTextColor;
-        background-color: $mainSiteTextColor;
-
-        &:hover {
-            background-color: $formBackgroundColor;
-        }
-
-        a {
-            text-decoration: none;
-            text-transform: uppercase;
-            font-size: 16px;
-            color: $calendarTextThirdColor;
-
-        }
-
-
+    a {
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: 16px;
+      color: $calendarTextThirdColor;
     }
+  }
 }

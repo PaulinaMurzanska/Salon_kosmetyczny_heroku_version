@@ -1,61 +1,37 @@
-{% extends "base.html" %}
-
-{% load static %}
-{% block main %}
+{% extends "base.html" %} {% load static %} {% block main %}
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Confirmation</title>
+    <link rel="stylesheet" href="{% static 'bookings/sass/main.css'%}" />
+  </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kalendarz</title>
-    <link rel="stylesheet" href="{% static 'bookings/sass/main.css'%}">
-</head>
-
-<body>
+  <body>
     <section class="confirmation">
-        <div class="background">
+      <div class="background"></div>
+      <div class="confirm-box">
+        <div class="box head">Thank you, your reservation is confirmed.</div>
+        <div class="box head">Reservation details:</div>
 
+        <div class="box">
+          <span>Service: {{reservation.service}}</span>
         </div>
-        <div class="confirm-box">
-
-            <div class="box head">
-                Dziękujemy za dokonanie rezerwacji w naszym salonie. Twoja rezerwacja jest potwierdzona.
-            </div>
-            <div class="box head">
-                Szczegóły Twojej rezerwacji :
-            </div>
-
-            <div class="box">
-                <span>Wybrana usługa: {{reservation.service}}</span>
-            </div>
-            <div class="box">
-                <span>Cena usługi: {{ reservation.price}} pln </span>
-            </div>
-            <div class="box">
-                <span>Zarezerwowany termin: {{ reservation.timestamp }} </span>
-            </div>
-            <div class="box">
-                <span>Wybrany pracownik: {{reservation.employee}} </span>
-            </div>
-            <div class="box">
-                <code>Kod rezerwacji: {{ reservation.code }}</code>
-            </div>
-
-
-
-
-
-
-
-
+        <div class="box">
+          <span>Price: {{ reservation.price}} pln </span>
         </div>
-
+        <div class="box">
+          <span>Appointment: {{ reservation.timestamp }} </span>
+        </div>
+        <div class="box">
+          <span>Employee: {{reservation.employee}} </span>
+        </div>
+        <div class="box">
+          <code>Reservation code: {{ reservation.code }}</code>
+        </div>
+      </div>
     </section>
-
-
-
-</body>
-
+  </body>
 </html>
 {% endblock %}

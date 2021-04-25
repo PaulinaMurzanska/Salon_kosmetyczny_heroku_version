@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /*! modern-normalize v1.0.0 | MIT License | https://github.com/sindresorhus/modern-normalize */
 /*
 Document
@@ -278,7 +277,7 @@ summary {
 
 @media (max-width: 800px) {
   .reservation {
-    padding: 50px 30px;
+    padding: 50px 5px;
   }
 }
 
@@ -384,8 +383,8 @@ summary {
 .reservation .calendar-wrap .weekdays-wrapper .chevron-left:hover {
   color: #383734;
   font-size: 22px;
-  -webkit-transition: .5s;
-  transition: .5s;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
 }
 
 .reservation .calendar-wrap .weekdays-wrapper .chevron-right {
@@ -403,8 +402,8 @@ summary {
 .reservation .calendar-wrap .weekdays-wrapper .chevron-right:hover {
   color: #383734;
   font-size: 22px;
-  -webkit-transition: .5s;
-  transition: .5s;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
 }
 
 .reservation .calendar-wrap .weekdays-wrapper .weekdays {
@@ -433,7 +432,7 @@ summary {
 }
 
 .reservation .calendar-wrap .weekdays-wrapper .weekdays ul li {
-  width: calc(100%/7);
+  width: calc(100% / 7);
   height: 50px;
   text-align: center;
   padding-top: 10px;
@@ -449,12 +448,10 @@ summary {
 }
 
 .reservation .calendar-wrap .weekdays-wrapper .weekdays.name li a {
-  text-transform: uppercase;
   color: #383734;
   font-size: 12px;
   text-decoration: none;
   color: #8c8b88;
-  text-transform: uppercase;
 }
 
 .reservation .calendar-wrap .weekdays-wrapper .weekdays.date li {
@@ -467,7 +464,6 @@ summary {
 }
 
 .reservation .calendar-wrap .weekdays-wrapper .weekdays.date li a {
-  text-transform: uppercase;
   color: #383734;
   font-size: 16px;
   text-decoration: none;
@@ -503,7 +499,7 @@ summary {
 }
 
 .reservation .calendar-wrap .part-of-day .items .item {
-  width: calc(100%/3);
+  width: calc(100% / 3);
   color: #8c8b88;
   text-transform: uppercase;
   font-size: 12px;
@@ -523,7 +519,7 @@ summary {
 
 @media (max-width: 800px) {
   .reservation .calendar-wrap form {
-    padding: 0 10px 20px;
+    padding: 0;
   }
 }
 
@@ -593,10 +589,11 @@ summary {
 
 .reservation .calendar-wrap form .container .box .slot.reserved {
   position: relative;
+  color: transparent;
 }
 
 .reservation .calendar-wrap form .container .box .slot.reserved:after {
-  content: "termin niedostępny";
+  content: "unavailable";
   background-color: #fff;
   z-index: 2;
   position: absolute;
@@ -607,6 +604,7 @@ summary {
   text-align: center;
   padding-top: 15px;
   font-size: 12px;
+  color: #000;
 }
 
 .reservation .calendar-wrap form .container .box .slot.free {
@@ -663,8 +661,8 @@ summary {
 .reservation .calendar-wrap form .btn input:hover {
   background-color: rgba(177, 90, 124, 0.1);
   color: #b15a7c;
-  -webkit-transition: .2s;
-  transition: .2s;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
   font-weight: 400;
 }
 
@@ -674,25 +672,17 @@ summary {
 }
 
 .summary {
+  width: 100%;
   padding: 100px 80px 20px;
   background-color: #fff;
   text-align: center;
   position: relative;
 }
 
-.summary .logo {
-  width: 200px;
-  position: absolute;
-  top: 5px;
-  left: 5px;
-}
-
-.summary .logo img {
-  width: 100%;
-}
-
-.summary .logo img:hover {
-  border: 1px solid #f1e1e7;
+@media (max-width: 700px) {
+  .summary {
+    padding: 50px 10px 10px;
+  }
 }
 
 .summary h1 {
@@ -704,6 +694,12 @@ summary {
 
 .summary .res-summary {
   padding: 0 80px;
+}
+
+@media (max-width: 700px) {
+  .summary .res-summary {
+    padding: 10px;
+  }
 }
 
 .summary .res-summary p {
@@ -732,10 +728,15 @@ summary {
 }
 
 .summary .conf-info {
-  text-transform: uppercase;
   font-weight: 600;
   color: #605f5d;
   padding: 0 80px;
+}
+
+@media (max-width: 700px) {
+  .summary .conf-info {
+    padding: 10px;
+  }
 }
 
 .errors {
@@ -755,10 +756,10 @@ summary {
 }
 
 .return {
-  margin-left: 160px;
   padding: 10px;
   width: 190px;
   border: 1px solid #b15a7c;
+  margin-left: 10px;
 }
 
 .return:hover {
@@ -786,6 +787,12 @@ form {
   text-align: center;
 }
 
+@media (max-width: 700px) {
+  form {
+    padding: 10px;
+  }
+}
+
 form table {
   margin: 0 auto;
   width: 100%;
@@ -799,7 +806,6 @@ form table tr {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  padding: 10px 80px;
 }
 
 form table tr:nth-of-type(5) {
@@ -810,6 +816,8 @@ form table tr:nth-of-type(5) {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 form table tr:nth-of-type(5) th {
@@ -845,7 +853,7 @@ form table tr:nth-of-type(5) td input:before {
 
 form table tr:nth-of-type(5) td input:after {
   content: "\f00c";
-  font-family: 'Font Awesome 5 Free';
+  font-family: "Font Awesome 5 Free";
   font-weight: 900;
   color: #383734;
   z-index: 6;
@@ -915,7 +923,7 @@ form table tr:nth-of-type(6) td input:before {
 
 form table tr:nth-of-type(6) td input:after {
   content: "\f00c";
-  font-family: 'Font Awesome 5 Free';
+  font-family: "Font Awesome 5 Free";
   font-weight: 900;
   color: #383734;
   z-index: 6;
@@ -944,7 +952,6 @@ form table tr:nth-of-type(6) td span a {
 
 form table th {
   color: #383734;
-  text-transform: uppercase;
   font-weight: 400;
   width: 70%;
   margin: 0 auto;
@@ -963,6 +970,12 @@ form table td input {
   padding: 5px;
   text-align: center;
   background-color: rgba(177, 90, 124, 0.1);
+}
+
+@media (max-width: 700px) {
+  form table td input {
+    width: 100%;
+  }
 }
 
 form table td input:hover {
@@ -1012,11 +1025,20 @@ form input[type="submit"]:focus {
   position: absolute;
   top: 80px;
   left: 80px;
-  margin: 0 auto;
   text-align: left;
   padding: 20px 40px;
   background: -webkit-gradient(linear, right top, left top, from(#b16f885d), to(#f1eaed));
   background: linear-gradient(to left, #b16f885d, #f1eaed);
+}
+
+@media (max-width: 700px) {
+  .confirmation .confirm-box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 20px;
+    height: 100vh;
+  }
 }
 
 .confirmation .confirm-box .box {
@@ -1065,6 +1087,15 @@ form input[type="submit"]:focus {
 
 .menu-top .logo img {
   height: 100%;
+  -webkit-transform: scale(2);
+          transform: scale(2);
+  margin-left: 50px;
+}
+
+@media (max-width: 700px) {
+  .menu-top .logo img {
+    margin-left: 30px;
+  }
 }
 
 .menu-top .offer ul {
@@ -1145,11 +1176,11 @@ form input[type="submit"]:focus {
   text-align: left;
   -webkit-transform: translate3d(0, -52vh, 0);
           transform: translate3d(0, -52vh, 0);
-  -webkit-transition: .8s;
-  transition: .8s;
+  -webkit-transition: 0.8s;
+  transition: 0.8s;
   z-index: 20;
-  -webkit-box-shadow: 0px 0px 3px 1px #E4AFBE;
-          box-shadow: 0px 0px 3px 1px #E4AFBE;
+  -webkit-box-shadow: 0px 0px 3px 1px #e4afbe;
+          box-shadow: 0px 0px 3px 1px #e4afbe;
 }
 
 .menu-top .menu-hidden .offer.vertical ul {
@@ -1172,8 +1203,8 @@ form input[type="submit"]:focus {
 .menu-top .menu-hidden.visible {
   -webkit-transform: translate3d(0, 0vh, 0);
           transform: translate3d(0, 0vh, 0);
-  -webkit-transition: .8s;
-  transition: .8s;
+  -webkit-transition: 0.8s;
+  transition: 0.8s;
   z-index: 20;
 }
 
@@ -1201,18 +1232,18 @@ form input[type="submit"]:focus {
 }
 
 .intro-nice h1 {
-  font-size: 30px;
+  font-size: 20px;
 }
 
 @media screen and (min-width: 320px) {
   .intro-nice h1 {
-    font-size: calc(30px + strip-unit(70px) * ((100vw - 320px) / strip-unit(850px)));
+    font-size: calc(20px + strip-unit(15px) * ((100vw - 320px) / strip-unit(850px)));
   }
 }
 
 @media screen and (min-width: 1170px) {
   .intro-nice h1 {
-    font-size: 100px;
+    font-size: 35px;
   }
 }
 
@@ -1220,6 +1251,8 @@ form input[type="submit"]:focus {
   color: #605f5d;
   font-weight: 600;
   font-family: "Poppins", sans-serif;
+  line-height: 20px;
+  letter-spacing: 1px;
 }
 
 .intro-nice p {
@@ -1228,19 +1261,31 @@ form input[type="submit"]:focus {
 
 @media screen and (min-width: 320px) {
   .intro-nice p {
-    font-size: calc(10px + strip-unit(8px) * ((100vw - 320px) / strip-unit(850px)));
+    font-size: calc(10px + strip-unit(6px) * ((100vw - 320px) / strip-unit(850px)));
   }
 }
 
 @media screen and (min-width: 1170px) {
   .intro-nice p {
-    font-size: 18px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 700px) {
+  .intro-nice p {
+    line-height: 12px;
   }
 }
 
 .calendar {
   width: 100%;
   padding: 0 80px;
+}
+
+@media (max-width: 700px) {
+  .calendar {
+    padding: 10px;
+  }
 }
 
 .calendar .hello {
@@ -1258,28 +1303,47 @@ form input[type="submit"]:focus {
   margin: 30px auto;
 }
 
-.calendar table {
+.calendar .table-wrap {
+  overflow-x: auto;
+}
+
+.calendar .table-wrap table {
   border: 2px solid #b15a7c;
   padding: 10px;
   border-spacing: 0.3em;
   text-align: center;
+  width: 100%;
 }
 
-.calendar table th,
-.calendar table td {
+@media (max-width: 700px) {
+  .calendar .table-wrap table {
+    padding: 5px;
+    border-spacing: 0.1em;
+  }
+}
+
+.calendar .table-wrap table th,
+.calendar .table-wrap table td {
   padding: 10px;
   border-right: none;
   border-left: none;
   background-color: #f1e1e7;
 }
 
-.calendar table td {
+@media (max-width: 700px) {
+  .calendar .table-wrap table th,
+  .calendar .table-wrap table td {
+    padding: 5px;
+  }
+}
+
+.calendar .table-wrap table td {
   text-transform: uppercase;
   color: #b15a7c;
   font-size: 10px;
 }
 
-.calendar table th {
+.calendar .table-wrap table th {
   text-transform: uppercase;
   color: #b15a7c;
   font-size: 10px;
