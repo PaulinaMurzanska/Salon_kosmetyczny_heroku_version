@@ -29,13 +29,15 @@ class Reservation(models.Model):
     duration = models.DurationField(default=timedelta(hours=1))
     price = models.PositiveIntegerField(default=15)
     STATUS_CHOICES = [
-        ("pending", "Oczekująca"),
-        ("accepted", "Potwierdzona"),
-        ("cancelled", "Anulowana"),
-        ("finished", "Zakończona"),
+        ("pending", "Pending"),
+        ("accepted", "Accepted"),
+        ("cancelled", "Cancelled"),
+        ("finished", "Completed"),
     ]
     status = models.CharField(
-        max_length=20, choices=STATUS_CHOICES, default=STATUS_CHOICES[0][0],
+        max_length=20,
+        choices=STATUS_CHOICES,
+        default=STATUS_CHOICES[0][0],
     )
     privacy_policy = models.BooleanField(
         default=False,
